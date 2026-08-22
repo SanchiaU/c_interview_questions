@@ -1,0 +1,7 @@
+new/delete 与malloc/free都是动态内存的管理办法。
+1. new/delete是c++操作符与关键字，不需要头文件就能实现；
+malloc/free是c的标准库函数，西药引入<cstdlib>的头文件
+2.new/delete使用的时候自动计算内存大小，比如 = new int(10);
+但是malloc需要手动计算字节数且要强转(int *)malloc(sizeof(int));
+3.new分配内存的时候会自动调用构造函数完成对象初始化，delete释放前会调用析构函数清理资源，类型安全、支持重载；而malloc/free只能做堆内存的分配和释放。所以处理类对象的时候，必须要使用new/delete
+4. 两者是不能混用的

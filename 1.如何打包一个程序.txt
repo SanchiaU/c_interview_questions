@@ -1,0 +1,14 @@
+1. 为这个程序添加一张logo001.ico图表
+2 .创建applogo.rc文件
+    往里面添加代码：IDI_ICON1 ICON DISCARDABLE "./images/logo001.ico"
+3.在xxx.pro文件中添加
+RC_FILE += applogo.rc
+CONFIG += release命令
+4. 保存并执行程序（图标已经更改）
+5.复制release文件中的xxx.exe文件在所要打包放置的文件夹中
+6.双击执行（生成xxx.db数据库）
+7.打开对应32或者64位Qt套件的命令框
+8.在命令框中转到打包放置文件夹的地址（cd /...cd D:\...）
+9. windeployqt xxx.exe收集数据
+10.打开下载的打包软件Enigma Virtual Box，进行对文件的打包
+11.打开xxx_boxed.exe程序并执行
