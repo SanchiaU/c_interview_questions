@@ -1,0 +1,21 @@
+大小端是"多字节数据在内存里的存放顺序"问题——高位字节（大端）还是低位字节（小端）放在低地址。
+低位字节放在低地址。高位字节放在低地址。
+#include <cstdio>
+
+int main() {
+    union {
+        int  i;            // 4 字节
+        char c;            // 1 字节
+    } u;
+
+    u.i = 1;               // 0x00000001
+
+    // 小端：低地址存最低字节 0x01 → u.c == 1
+    // 大端：低地址存最高字节 0x00 → u.c == 0
+    if (u.c == 1)
+        printf("Little Endian\n");
+    else
+        printf("Big Endian\n");
+
+    return 0;
+}
